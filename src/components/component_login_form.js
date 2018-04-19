@@ -5,8 +5,14 @@ import { View, Text } from 'react-native'
 
 import { Card, CardSection, Input, Button } from './common'
 
+import { connect } from 'react-redux'
+
+import * as actions from '../actions'
+
 class LoginForm extends Component {
+
 	render() {
+		// console.log('INNER PIECE OF REDUX STATE', this.props.initialState)
 		return(
 			<Card>
 
@@ -26,7 +32,13 @@ class LoginForm extends Component {
 				</CardSection>
 
 				<CardSection>
-					<Button>Login</Button>
+					<Button
+						onPress={() => {
+
+							this.props.startApp()
+
+						}}
+					>Login</Button>
 				</CardSection>
 
 			</Card>
@@ -34,7 +46,15 @@ class LoginForm extends Component {
 	}
 }
 
-export default LoginForm
+const mapStateToProps = (state) => {
+
+	return { 
+		initialState: state.initialState
+	}
+
+}
+//to mapStateToProps be called is done by connect
+export default connect(mapStateToProps, actions)(LoginForm)
 
 
 

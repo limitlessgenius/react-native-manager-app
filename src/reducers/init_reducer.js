@@ -1,8 +1,14 @@
 
 
+export default (state = null, action) => {
 
-export default (state = null) => {
-	console.log(state)
+	switch(action.type) {
+		case 'START_APP': 
+			return action.payload
+		default: 
+			return state
+	}
+
 	return []
 }
 
