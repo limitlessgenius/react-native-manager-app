@@ -3,14 +3,16 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { Card, CardSection, Input, Button } from './common'
 import { connect } from 'react-redux'
-import { startApp, emailChanged } from '../actions'
+import { emailChanged, passwordChanged } from '../actions'
 
 class LoginForm extends Component {
 
 	onEmailChange(email) {
-
 		this.props.emailChanged()
-		console.log('USER CREATED', this.props.authCredentials)
+	}
+
+	onPasswordChange(password) {
+		this.props.passwordChanged()
 	}
 
 	render() {
@@ -21,9 +23,8 @@ class LoginForm extends Component {
 					<Input 
 						label="Email"
 						placeholder="email@gmail.com"
-						onChangeText={
-							this.onEmailChange.bind(this)
-						}
+						onChangeText={this.onEmailChange.bind(this)}
+						value={this.props.email}
 					/>
 				</CardSection>
 
@@ -32,7 +33,8 @@ class LoginForm extends Component {
 						securityTextEntry
 						label="Password"
 						placeholder="password"
-						onChangeText={() => console.log('X')}
+						onChangeText={this.onPasswordChange.bind(this)}
+						value={this.props.password}
 					/>
 				</CardSection>
 
@@ -44,15 +46,19 @@ class LoginForm extends Component {
 		)
 	}
 }
-
+//because we are going to reference this in the call back; we bind to this
 const mapStateToProps = (state) => {
+	console.log('UPDATED STATE', state)
 	return { 
-		authCredentials: state.authCredentials, 
+		email: state.authCredentials.email, 
+		password: state.authCredentials.password,
 	}
 
 }
 //to mapStateToProps be called is done by connect
-export default connect(mapStateToProps, { emailChanged })(LoginForm)
+export default connect(mapStateToProps, { 
+	emailChanged, 
+	passwordChanged })(LoginForm)
 
 
 

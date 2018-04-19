@@ -1,15 +1,20 @@
 
-export const startApp = () => {
+import { 
+	EMAIL_CHANGED, 
+	PASSWORD_CHANGED } from './types'
+
+
+export const emailChanged = (email) => {
 	return {
-		type: 'START_APP', 
-		payload: 'DATA'
+		type: EMAIL_CHANGED, 
+		payload: ''
 	}
 }
 
-export const emailChanged = () => {
+export const passwordChanged = (password) => {
 	return {
-		type: 'EMAIL_CHANGE', 
-		payload: 'USER E-MAIL'
+		type: PASSWORD_CHANGED, 
+		payload: ''
 	}
 }
 
