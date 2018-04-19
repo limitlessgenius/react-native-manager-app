@@ -25,6 +25,7 @@ export default (state = INITIAL_STATE, action) => {
 			return { ...state, user: action.payload }
 		case LOGIN_USER_FAIL: 
 			return { ...state, error: true }
+			return state
 		default: 
 			return state
 	}
