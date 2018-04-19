@@ -1,17 +1,11 @@
 
 
 export default (state = null, action) => {
-
-	console.log(action)
-
 	switch(action.type) {
-		case 'START_APP': 
+		case 'EMAIL_CHANGE': 
 			return action.payload
 		default: 
 			return state
 	}
-
-	return []
 }
-
 
