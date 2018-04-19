@@ -14,10 +14,11 @@ export default (state = INITIAL_STATE, action) => {
 			return { ...state, email: action.payload }
 			//produce brand new object
 		case PASSWORD_CHANGED: 
-			return { ...state, password: action.payload}
+			return { ...state, password: action.payload }
 		default: 
 			return state
 	}
 }
 //reducer: recreates whole state; produces pieces of state; 
+
 
