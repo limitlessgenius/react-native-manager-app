@@ -59,6 +59,7 @@ const mapStateToProps = (state) => {
 	return { 
 		email: state.authCredentials.email, 
 		password: state.authCredentials.password,
+		error: state.authCredentials.error
 	}
 
 }
