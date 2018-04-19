@@ -5,7 +5,8 @@ import {
 	EMAIL_CHANGED, 
 	PASSWORD_CHANGED, 
 	LOGIN_USER_SUCCESS, 
-	LOGIN_USER_FAIL } from './types'
+	LOGIN_USER_FAIL, 
+	LOADING } from './types'
 
 
 export const emailChanged = (email) => {
@@ -31,6 +32,13 @@ export const loginUser = ({ email, password }) => {
 				.then(user => loginUserSuccess(user, dispatch))
 				.catch(() => loginUserFail(dispatch))
 			})
+	}
+}
+
+export const loadingLogin = () => {
+	return {
+		type: LOADING,
+		payload: 'ON'
 	}
 }
 
