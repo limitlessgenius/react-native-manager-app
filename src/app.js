@@ -6,6 +6,9 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from './reducers'
 
+import LoginForm from './components/component_login_form'
+import { Header } from './components/common'
+
 class App extends Component {
 
 	componentWillMount() {
@@ -24,7 +27,8 @@ class App extends Component {
 		return(
 			<Provider store={createStore(reducers)}>
 				<View>
-					<Text>REACT NATIVE APP</Text>
+					<Header headerTitle={"Manager"}/>
+					<LoginForm />
 				</View>
 			</Provider>
 		)
