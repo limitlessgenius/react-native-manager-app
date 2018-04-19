@@ -16,11 +16,9 @@ class LoginForm extends Component {
 	}
 
 	onButtonPress() {
-
 		const { email, password } = this.props
 
 		this.props.loginUser({ email, password })
-
 	}
 
 	render() {
@@ -57,6 +55,7 @@ class LoginForm extends Component {
 //Why this pattern
 //because we are going to reference this in the call back; we bind to this
 const mapStateToProps = (state) => {
+	console.log('NEW USER', state)
 	return { 
 		email: state.authCredentials.email, 
 		password: state.authCredentials.password,
