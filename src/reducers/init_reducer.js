@@ -1,17 +1,17 @@
 
 
-export default (state = null, action) => {
+// export default (state = null, action) => {
 
-	console.log(action)
+// 	console.log(action)
 
-	switch(action.type) {
-		case 'START_APP': 
-			return action.payload
-		default: 
-			return state
-	}
+// 	switch(action.type) {
+// 		case 'START_APP': 
+// 			return action.payload
+// 		default: 
+// 			return state
+// 	}
 
-	return []
-}
+// 	return []
+// }
 
 

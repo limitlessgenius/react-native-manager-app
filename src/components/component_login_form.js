@@ -1,17 +1,13 @@
 
-
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
-
 import { Card, CardSection, Input, Button } from './common'
-
 import { connect } from 'react-redux'
-
 import { startApp, emailChanged } from '../actions'
 
 class LoginForm extends Component {
 
-	onEmailChange() {
+	onEmailChange(email) {
 
 		this.props.emailChanged()
 		console.log('USER CREATED', this.props.authCredentials)
@@ -41,9 +37,7 @@ class LoginForm extends Component {
 				</CardSection>
 
 				<CardSection>
-					<Button
-						onPress={() => { this.props.startApp() }}
-					>Login</Button>
+					<Button onPress={() =>console.log('CLICK')}>Login</Button>
 				</CardSection>
 
 			</Card>
@@ -52,20 +46,13 @@ class LoginForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-
 	return { 
-		initialState: state.initialState, 
 		authCredentials: state.authCredentials, 
 	}
 
 }
 //to mapStateToProps be called is done by connect
-export default connect(mapStateToProps, 
-	{ 
-		startApp, 
-		emailChanged, 
-	})
-(LoginForm)
+export default connect(mapStateToProps, { emailChanged })(LoginForm)
 
 
 
