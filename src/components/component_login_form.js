@@ -8,11 +8,11 @@ import { emailChanged, passwordChanged, loginUser } from '../actions'
 class LoginForm extends Component {
 
 	onEmailChange(email) {
-		this.props.emailChanged()
+		this.props.emailChanged(email)
 	}
 
 	onPasswordChange(password) {
-		this.props.passwordChanged()
+		this.props.passwordChanged(password)
 	}
 
 	onButtonPress() {
@@ -57,7 +57,6 @@ class LoginForm extends Component {
 //Why this pattern
 //because we are going to reference this in the call back; we bind to this
 const mapStateToProps = (state) => {
-	console.log('UPDATED STATE', state)
 	return { 
 		email: state.authCredentials.email, 
 		password: state.authCredentials.password,
