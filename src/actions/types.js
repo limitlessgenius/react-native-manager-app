@@ -5,7 +5,7 @@ export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
 export const LOGIN_USER_FAIL  = 'LOGIN_USER_FAIL'
 export const LOADING = 'LOADING'
 export const CREATE_EMPLOYEE = 'CREATE_EMPLOYEE'
-export const STORE_EMPLOYEE = 'STORE_EMPLOYEE'
+// export const STORE_EMPLOYEE = 'STORE_EMPLOYEE'
 
 
 
