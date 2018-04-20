@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { Picker } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
 
 import { createEmployee } from '../actions'
@@ -35,13 +35,20 @@ class EmployeeCreateForm extends Component {
 				</CardSection>
 
 				<CardSection>
-					<Input 
-						label="Shift"
-						placeholder="Monday, Wednesday, Friday"
-						onChangeText={value => 
-							this.props.createEmployee({ key: 'shift', value })
-						}
-					/>
+					<Picker
+						style={{ flex: 1 }}
+						selectedValue={this.props.shift}
+						onValueChange={
+							value => this.props.createEmployee({ prop: 'shift', value })}
+					>
+						<Picker.Item label="Monday" value="Monday" />
+						<Picker.Item label="Thursday" value="Thursday" />
+						<Picker.Item label="Wednesday" value="Wednesday" />
+						<Picker.Item label="Thursday" value="Thursday" />
+						<Picker.Item label="Friday" value="Friday" />
+						<Picker.Item label="Saturday" value="Saturday" />
+						<Picker.Item label="Sunday" value="Sunday" />
+					</Picker>
 				</CardSection>
 
 				<CardSection>
@@ -61,9 +68,9 @@ const mapStateToProps = (state) => {
 
 	console.log('STATE', state)
 
-	const { name, number, shift } = state.employee
+	const { name, number } = state.employee
 
-	return { name, number, shift }
+	return { name, number }
 }
 
 export default connect (mapStateToProps, { createEmployee })(EmployeeCreateForm)
