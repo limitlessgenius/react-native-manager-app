@@ -29,17 +29,23 @@ class LoginForm extends Component {
 	renderErrorMessage() {
 		if(this.props.error) {
 			return(
-				<View style={{flexDirection:'row', justifyContent:'center'}}>
+				<CardSection>
 					<Text style={{color: 'red', fontSize: 18, fontWeight: 'bold'}}>
-						Wrong password or user
+							Wrong password or user
 					</Text> 
-				</View>
+				</CardSection>
 			)
 		}
 	}
 
 	renderLoadingSpinnerOrButton() {
-		if(this.props.loading) return <Spinner size={"large"}/>
+		if(this.props.loading) {
+			return (
+			<CardSection>
+				<Spinner size={"large"}/>
+			</CardSection>
+			) 
+		}
 
 		return(
 			<CardSection>
