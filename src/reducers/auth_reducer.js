@@ -28,8 +28,7 @@ export default (state = INITIAL_STATE, action) => {
 		case LOGIN_USER_FAIL: 
 			return { ...state, error: true, loading: false }
 		case LOADING: 
-			console.log('IT WORKS', action.payload)
-			return { ...state, loading: true}
+			return { ...state, loading: true, error: false }
 		default: 
 			return state
 	}
