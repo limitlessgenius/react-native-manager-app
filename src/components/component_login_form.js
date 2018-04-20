@@ -30,10 +30,10 @@ class LoginForm extends Component {
 		if(this.props.error) {
 			return(
 				<CardSection>
-					<Text style={{color: 'red', fontSize: 18, fontWeight: 'bold'}}>
-							Wrong password or user
-					</Text> 
-				</CardSection>
+					<Text style={{ textAlign: 'center', color: 'red', fontSize: 18, fontWeight: 'bold'}}>
+						Wrong password or user
+					</Text>
+				</CardSection>		
 			)
 		}
 	}
@@ -103,7 +103,7 @@ export default connect(mapStateToProps, {
 	loadingLogin
 })(LoginForm)
 
-
+//Can't override parent flex prop of card section in text or view children
 
 
 
