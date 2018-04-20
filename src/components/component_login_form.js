@@ -30,9 +30,11 @@ class LoginForm extends Component {
 		if(this.props.error) {
 			return(
 				<CardSection>
-					<Text style={{ textAlign: 'center', color: 'red', fontSize: 18, fontWeight: 'bold'}}>
-						Wrong password or user
-					</Text>
+					<View style={{flex: 1}}>
+						<Text style={{textAlign: 'center', color: 'red', fontSize: 18, fontWeight: 'bold'}}>
+							Wrong password or user
+						</Text>
+					</View>
 				</CardSection>		
 			)
 		}
@@ -104,6 +106,8 @@ export default connect(mapStateToProps, {
 })(LoginForm)
 
 //Can't override parent flex prop of card section in text or view children
+
+//Super learning initialize flex 1 of view for it to have positioning
 
 
 
