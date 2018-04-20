@@ -3,9 +3,7 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
-
 import { createEmployee } from '../actions'
-
 import { connect } from 'react-redux'
 
 class EmployeeCreateForm extends Component {
@@ -41,8 +39,8 @@ class EmployeeCreateForm extends Component {
 				<CardSection>
 					<Button
 						onPress={() => {
-							console.log('CREATE EMPLOYEE')
-							console.log('EMPLOYEE CREATOR', this.props.createEmployee)
+
+							this.props.createEmployee()
 						}}
 					>
 						CREATE EMPLOYEE
@@ -54,7 +52,7 @@ class EmployeeCreateForm extends Component {
 	}
 }
 
-export default connect (null, {createEmployee})(EmployeeCreateForm)
+export default connect (null, { createEmployee })(EmployeeCreateForm)
 
 
 //Why button title doesn't display if not inside card section

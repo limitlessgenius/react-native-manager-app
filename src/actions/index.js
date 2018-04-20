@@ -8,7 +8,8 @@ import {
 	PASSWORD_CHANGED, 
 	LOGIN_USER_SUCCESS, 
 	LOGIN_USER_FAIL, 
-	LOADING } from './types'
+	LOADING, 
+	CREATE_EMPLOYEE } from './types'
 
 
 export const emailChanged = (email) => {

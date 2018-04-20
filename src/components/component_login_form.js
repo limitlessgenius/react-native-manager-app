@@ -102,7 +102,8 @@ export default connect(mapStateToProps, {
 	emailChanged, 
 	passwordChanged, 
 	loginUser, 
-	loadingLogin
+	loadingLogin, 
+
 })(LoginForm)
 
 //Can't override parent flex prop of card section in text or view children
