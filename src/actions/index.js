@@ -25,6 +25,7 @@ export const passwordChanged = (password) => {
 
 export const loginUser = ({ email, password }) => {
 	return(dispatch) => {
+		// dispatch({ type: LOADING })
 		firebase.auth().signInWithEmailAndPassword(email, password)
 			.then(user => loginUserSuccess(user, dispatch))
 			.catch(() => {
@@ -38,7 +39,6 @@ export const loginUser = ({ email, password }) => {
 export const loadingLogin = () => {
 	return {
 		type: LOADING,
-		payload: 'ON'
 	}
 }
 

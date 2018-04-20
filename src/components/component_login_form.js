@@ -21,7 +21,7 @@ class LoginForm extends Component {
 
 	onButtonPress() {
 		const { email, password } = this.props
-
+		//se los pasas del estado
 		this.props.loadingLogin()
 		this.props.loginUser({ email, password })
 	}
@@ -65,13 +65,14 @@ class LoginForm extends Component {
 					/>
 				</CardSection>
 
+				{this.renderErrorMessage()}
+
 				<CardSection>
 					<Button onPress={this.onButtonPress.bind(this)}>Login</Button>
 				</CardSection>
 
 				{this.renderLoadingSpinner()}
-
-				{this.renderErrorMessage()}
+				
 
 			</Card>
 		)
@@ -80,7 +81,6 @@ class LoginForm extends Component {
 //Why this pattern
 //because we are going to reference this in the call back; we bind to this
 const mapStateToProps = (state) => {
-	console.log('NEW USER', state)
 	return { 
 		email: state.authCredentials.email, 
 		password: state.authCredentials.password,
