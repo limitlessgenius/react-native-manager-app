@@ -3,7 +3,8 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
-import { createEmployee } from '../actions/create_employee_actions'
+
+import { createEmployee } from '../actions'
 import { connect } from 'react-redux'
 
 class EmployeeCreateForm extends Component {
@@ -15,7 +16,10 @@ class EmployeeCreateForm extends Component {
 					<Input 
 						label="Name"
 						placeholder="José"
-						onChangeText={(name) => console.log(name)}
+						value={this.props.name}
+						onChangeText={name => 
+							this.props.createEmployee({ key: 'name', value: name })
+						}
 					/>
 				</CardSection>
 
@@ -23,8 +27,10 @@ class EmployeeCreateForm extends Component {
 					<Input 
 						label="Phone"
 						placeholder="+34660049631"
-						onChangeText={(phone) => console.log(phone)}
-						
+						value={this.props.number}
+						onChangeText={number => 
+							this.props.createEmployee({ key: 'phone', value: number })
+						}
 					/>
 				</CardSection>
 
@@ -32,7 +38,9 @@ class EmployeeCreateForm extends Component {
 					<Input 
 						label="Shift"
 						placeholder="Monday, Wednesday, Friday"
-						onChangeText={(shift) => console.log(shift)}
+						onChangeText={shift => 
+							this.props.createEmployee({ key: 'shift', value: shift })
+						}
 					/>
 				</CardSection>
 
@@ -40,7 +48,7 @@ class EmployeeCreateForm extends Component {
 					<Button
 						onPress={() => {
 
-							this.props.createEmployee()
+							console.log('CLICK')
 						}}
 					>
 						CREATE
@@ -52,14 +60,26 @@ class EmployeeCreateForm extends Component {
 	}
 }
 
-export default connect (null, { createEmployee })(EmployeeCreateForm)
+const mapStateToProps = (state) => {
+
+	console.log('UPDATED STATE', state)
+
+	const { name, number, shift } = state.employee
+
+	return { 
+		name, 
+		number, 
+		shift
+	}
+}
+
+export default connect (mapStateToProps, { createEmployee })(EmployeeCreateForm)
 
 
-//Why button title doesn't display if not inside card section
-
-
-
-
+// Why button title doesn't display if not inside card section
+// start by degining action creator
+// utilize key interpolation in state restructuring
+// pass key value pairs from inputs
 
 
 

@@ -7,7 +7,7 @@ import {
 	emailChanged, 
 	passwordChanged, 
 	loginUser, 
-	loadingLogin } from '../actions/authentication_actions'
+	loadingLogin } from '../actions'
 
 class LoginForm extends Component {
 
