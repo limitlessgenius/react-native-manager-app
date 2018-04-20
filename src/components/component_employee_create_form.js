@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react'
-import { Picker } from 'react-native'
+import { Picker, Text, View } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
 
 import { createEmployee } from '../actions'
@@ -34,9 +34,9 @@ class EmployeeCreateForm extends Component {
 					/>
 				</CardSection>
 
-				<CardSection>
+				<CardSection style={{ flexDirection: 'column' }}>
+					<Text style={styles.shiftTextStyle}>Shift</Text>
 					<Picker
-						style={{ flex: 1 }}
 						selectedValue={this.props.shift}
 						onValueChange={
 							value => this.props.createEmployee({ prop: 'shift', value })}
@@ -64,6 +64,13 @@ class EmployeeCreateForm extends Component {
 	}
 }
 
+const styles = {
+	shiftTextStyle: {
+		fontSize: 18, 
+		paddingLeft: 20,
+	}
+}
+
 const mapStateToProps = (state) => {
 
 	console.log('STATE', state)
@@ -72,6 +79,8 @@ const mapStateToProps = (state) => {
 
 	return { name, number }
 }
+
+
 
 export default connect (mapStateToProps, { createEmployee })(EmployeeCreateForm)
 
