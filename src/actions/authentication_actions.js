@@ -1,4 +1,3 @@
-
 import firebase from 'firebase'
 
 import { Actions } from 'react-native-router-flux'
@@ -9,7 +8,7 @@ import {
 	LOGIN_USER_SUCCESS, 
 	LOGIN_USER_FAIL, 
 	LOADING, 
-	CREATE_EMPLOYEE } from './types'
+	} from './types'
 
 
 export const emailChanged = (email) => {
@@ -45,13 +44,6 @@ export const loadingLogin = () => {
 	}
 }
 
-export const createEmployee = () => {
-	return {
-		type: CREATE_EMPLOYEE, 
-		payload: 'NEW EMPLOYEE'
-	}
-}
-
 const loginUserSuccess = (user, dispatch) => {
 	dispatch({
 		type: LOGIN_USER_SUCCESS, 
@@ -66,7 +58,3 @@ const loginUserFail = (dispatch) => {
 		type: LOGIN_USER_FAIL 
 	})
 }
-
-
-
-

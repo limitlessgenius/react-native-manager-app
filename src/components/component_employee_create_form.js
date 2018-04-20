@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
-import { createEmployee } from '../actions'
+import { createEmployee } from '../actions/create_employee_actions'
 import { connect } from 'react-redux'
 
 class EmployeeCreateForm extends Component {
@@ -22,7 +22,7 @@ class EmployeeCreateForm extends Component {
 				<CardSection>
 					<Input 
 						label="Phone"
-						placeholder="+660049631"
+						placeholder="+34660049631"
 						onChangeText={(phone) => console.log(phone)}
 						
 					/>
@@ -43,7 +43,7 @@ class EmployeeCreateForm extends Component {
 							this.props.createEmployee()
 						}}
 					>
-						CREATE EMPLOYEE
+						CREATE
 					</Button>
 				</CardSection>
 				
