@@ -12,9 +12,7 @@ const RouterComponent = () => {
 		<Router>
 			<Scene key="root" hideNavBar>
 
-				<Scene key="auth">
-					<Scene key="login" component={LoginForm} title="Login" initial />
-				</Scene>
+				
 
 				<Scene key="main">
 					<Scene 
@@ -22,10 +20,8 @@ const RouterComponent = () => {
 						component={EmployeeList} 
 						title="Employees" 
 						rightTitle="Add"
-						onRight={() => {
-							console.log('CREATE NEW EMPLOYEE')
-							Actions.employeeCreate()
-						}}
+						onRight={() => Actions.employeeCreate()}
+						initial
 					/>
 					<Scene
 						key="employeeCreate"
@@ -40,6 +36,11 @@ const RouterComponent = () => {
 }
 
 export default RouterComponent
+/*
+<Scene key="auth">
+	<Scene key="login" component={LoginForm} title="Login" />
+</Scene>
+*/
 
 
 

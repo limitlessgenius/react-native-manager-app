@@ -44,6 +44,13 @@ export const loadingLogin = () => {
 	}
 }
 
+export const createEmployee = () => {
+	return {
+		type: CREATE_EMPLOYEE, 
+		payload: 'NEW EMPLOYEE'
+	}
+}
+
 const loginUserSuccess = (user, dispatch) => {
 	dispatch({
 		type: LOGIN_USER_SUCCESS, 
