@@ -9,9 +9,9 @@ import {
 const INITIAL_STATE = { 
 	email: '', 
 	password: '', 
-	user: null, 
 	error: false,
-	loading: false
+	loading: false, 
+	user: null, 
 } 
 
 export default (state = INITIAL_STATE, action) => {
@@ -24,12 +24,12 @@ export default (state = INITIAL_STATE, action) => {
 		case PASSWORD_CHANGED: 
 			return { ...state, password: action.payload }
 		case LOGIN_USER_SUCCESS: 
-			return { ...state, user: action.payload, error: false, loading: false }
+			return { ...state, ...INITIAL_STATE, user: action.payload }
 		case LOGIN_USER_FAIL: 
 			return { ...state, 
+				password: '',
 				error: true, 
 				loading: false, 
-				password: '',
 			}
 		case LOADING: 
 			return { ...state, loading: true, error: false }

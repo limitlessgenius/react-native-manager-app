@@ -38,8 +38,14 @@ class LoginForm extends Component {
 		}
 	}
 
-	renderLoadingSpinner() {
-		if(this.props.loading) return <Spinner />
+	renderLoadingSpinnerOrButton() {
+		if(this.props.loading) return <Spinner size={"large"}/>
+
+		return(
+			<CardSection>
+				<Button onPress={this.onButtonPress.bind(this)}>Login</Button>
+			</CardSection>
+		)
 	}
 
 	render() {
@@ -57,7 +63,7 @@ class LoginForm extends Component {
 
 				<CardSection>
 					<Input 
-						securityTextEntry
+						secureTextEntry={true}
 						label="Password"
 						placeholder="password"
 						onChangeText={this.onPasswordChange.bind(this)}
@@ -67,13 +73,8 @@ class LoginForm extends Component {
 
 				{this.renderErrorMessage()}
 
-				<CardSection>
-					<Button onPress={this.onButtonPress.bind(this)}>Login</Button>
-				</CardSection>
-
-				{this.renderLoadingSpinner()}
+				{this.renderLoadingSpinnerOrButton()}
 				
-
 			</Card>
 		)
 	}
@@ -81,12 +82,10 @@ class LoginForm extends Component {
 //Why this pattern
 //because we are going to reference this in the call back; we bind to this
 const mapStateToProps = (state) => {
-	return { 
-		email: state.authCredentials.email, 
-		password: state.authCredentials.password,
-		error: state.authCredentials.error, 
-		loading: state.authCredentials.loading
-	}
+
+	const { email, password, error, loading } = state.authCredentials
+
+	return { email, password, error, loading }
 
 }
 //to mapStateToProps be called is done by connect
