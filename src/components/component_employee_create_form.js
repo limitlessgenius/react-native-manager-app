@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
 
-import { createEmployee } from '../actions'
+import { createEmployee, storeEmployee } from '../actions'
 import { connect } from 'react-redux'
 
 class EmployeeCreateForm extends Component {
@@ -17,8 +17,8 @@ class EmployeeCreateForm extends Component {
 						label="Name"
 						placeholder="José"
 						value={this.props.name}
-						onChangeText={name => 
-							this.props.createEmployee({ key: 'name', value: name })
+						onChangeText={value => 
+							this.props.createEmployee({ key: 'name', value })
 						}
 					/>
 				</CardSection>
@@ -28,8 +28,8 @@ class EmployeeCreateForm extends Component {
 						label="Phone"
 						placeholder="+34660049631"
 						value={this.props.number}
-						onChangeText={number => 
-							this.props.createEmployee({ key: 'phone', value: number })
+						onChangeText={value => 
+							this.props.createEmployee({ key: 'phone', value })
 						}
 					/>
 				</CardSection>
@@ -38,18 +38,15 @@ class EmployeeCreateForm extends Component {
 					<Input 
 						label="Shift"
 						placeholder="Monday, Wednesday, Friday"
-						onChangeText={shift => 
-							this.props.createEmployee({ key: 'shift', value: shift })
+						onChangeText={value => 
+							this.props.createEmployee({ key: 'shift', value })
 						}
 					/>
 				</CardSection>
 
 				<CardSection>
 					<Button
-						onPress={() => {
-
-							console.log('CLICK')
-						}}
+						onPress={() => { this.props.storeEmployee() }}
 					>
 						CREATE
 					</Button>
@@ -62,18 +59,12 @@ class EmployeeCreateForm extends Component {
 
 const mapStateToProps = (state) => {
 
-	console.log('UPDATED STATE', state)
-
 	const { name, number, shift } = state.employee
 
-	return { 
-		name, 
-		number, 
-		shift
-	}
+	return { name, number, shift }
 }
 
-export default connect (mapStateToProps, { createEmployee })(EmployeeCreateForm)
+export default connect (mapStateToProps, { createEmployee, storeEmployee })(EmployeeCreateForm)
 
 
 // Why button title doesn't display if not inside card section
