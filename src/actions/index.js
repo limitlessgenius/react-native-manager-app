@@ -50,7 +50,7 @@ const loginUserSuccess = (user, dispatch) => {
 		payload: user
 	})
 
-	Actions.employeeList()
+	Actions.main()
 }
 
 const loginUserFail = (dispatch) => {
