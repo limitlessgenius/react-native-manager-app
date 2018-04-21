@@ -16,15 +16,23 @@ class EmployeeList extends Component {
 		this.props.fetchEmployees()
 	}
 
+	renderEmpployeeList({item}) {
+		return (
+			<CardSection>
+				<Text>{item.name}</Text>
+			</CardSection>
+		)
+	}
+
 	render() {
 		const arrEmployees = Object.values(this.props.employees)
 		return(
-			<View>
+			<Card>
 				<FlatList
 				  data={arrEmployees}
-				  renderItem={({item}) => <Text>{item.name}</Text>}
+				  renderItem={this.renderEmpployeeList.bind(this)}
 				/>
-			</View>
+			</Card>
 		)
 	}
 	
