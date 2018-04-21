@@ -13,7 +13,6 @@ class EmployeeList extends Component {
 
 	componentWillMount() {
 		this.props.fetchEmployees()
-	
 	}
 
 	renderEmployeeList({item}) {
@@ -25,11 +24,13 @@ class EmployeeList extends Component {
 	}
 
 	render() {
-		const arrEmployees = Object.values(this.props.employees)
+
+		console.log('ULTIMATE', this.props.employees)
+
 		return(
 			<Card>
 				<FlatList
-				  data={arrEmployees}
+				  data={this.props.employees}
 				  renderItem={this.renderEmployeeList.bind(this)}
 				/>
 			</Card>
@@ -40,10 +41,21 @@ class EmployeeList extends Component {
 
 const mapStateToProps = ({ employees }) => {
 
-	return { employees }
+	// console.log('EMPLOYEES', employees)
+
+	const arrID = Object.keys(employees)
+	const arrEmployees = Object.values(employees)	
+	
+	arrEmployees.map((employee, index) => {
+		employee["uid"] = arrID[index]
+	})
+	
+	return { 
+
+		employees : arrEmployees
+
+	}
 }
-
-
 
 export default connect(mapStateToProps, { fetchEmployees })(EmployeeList)
 
