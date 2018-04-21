@@ -13,6 +13,7 @@ export default (state = INITIAL_STATE, action) => {
 }
 
 //If I have state {} why not { ...state, action.payload }
-
+//...spread op missing
+//return action.payload //bc returning new object: wathever it returns === piece of state in index.js
 
 

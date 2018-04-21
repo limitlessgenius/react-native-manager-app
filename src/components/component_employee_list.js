@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import { Card, CardSection } from './common'
 
 import { connect } from 'react-redux'
@@ -14,22 +14,25 @@ class EmployeeList extends Component {
 	componentWillMount() {
 
 		this.props.fetchEmployees()
-
 	}
- 
+
 	render() {
-		return (
+		const arrEmployees = Object.values(this.props.employees)
+		return(
 			<View>
-				<Text>EMPLOYEE LIST</Text>
+				<FlatList
+				  data={arrEmployees}
+				  renderItem={({item}) => <Text>{item.name}</Text>}
+				/>
 			</View>
-		)	
+		)
 	}
 	
 }
 
-const mapStateToProps = (state) => {
-	console.log(state)
-	return {}
+const mapStateToProps = ({ employees }) => {
+
+	return { employees }
 }
 
 

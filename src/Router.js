@@ -37,11 +37,6 @@ const RouterComponent = () => {
 }
 
 export default RouterComponent
-/*
-<Scene key="auth">
-	<Scene key="login" component={LoginForm} title="Login" />
-</Scene>
-*/
 
 
 
