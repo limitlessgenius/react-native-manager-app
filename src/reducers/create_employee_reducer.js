@@ -11,7 +11,6 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
-
 	switch(action.type) {
 		case CREATE_EMPLOYEE: 
 			return { ...state, [action.payload.key]: action.payload.value }

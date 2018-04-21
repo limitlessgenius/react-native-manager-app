@@ -4,7 +4,8 @@ import { Actions } from 'react-native-router-flux'
 
 import {
 	CREATE_EMPLOYEE, 
-	EMPLOYEE_CREATED
+	EMPLOYEE_CREATED, 
+	EMPLOYEES_SUCCESS
 } from './types'
 
 //modular action creator pattern to be utilized run on various different props of same obj
@@ -28,11 +29,26 @@ export const storeEmployee = ({ name, phone, shift }) => {
 			})	
 	}
 }
-	//just to pass requirement of action being dispatched
-	//from redux app state
-	//path to json datastore ... find a key
-	//access specific location of database
-	//data gets persisted
+
+export const fetchEmployees = () => {
+
+	const { currentUser } = firebase.auth()
+	//ref
+	return(dispatch) => {
+		firebase.database().ref(`/users/${currentUser.uid}/employees`)
+			.on('value', snapshot => {
+				dispatch({ type: EMPLOYEES_SUCCESS, payload: snapshot.val() })
+			})
+	}
+	//snapshot: descriptive obj; not the data - .val()
+}
+
+//just to pass requirement of action being dispatched
+//from redux app state
+//path to json datastore ... find a key
+//access specific location of database
+//data gets persisted
+	
 
 
 

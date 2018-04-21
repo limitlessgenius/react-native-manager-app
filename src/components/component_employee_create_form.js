@@ -3,22 +3,21 @@
 import React, { Component } from 'react'
 import { Picker, Text, View } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
-
-import firebase from 'firebase'
-import { createEmployee, storeEmployee } from '../actions'
 import { connect } from 'react-redux'
+
+import { 
+	createEmployee, 
+	storeEmployee, 
+	} from '../actions'
 
 
 class EmployeeCreateForm extends Component {
 
 	onButtonPress() {
-
 		//be aware { name } === { name: name }
-
 		const { name, phone, shift } = this.props
 
 		this.props.storeEmployee({ name, phone, shift: shift || 'Monday' })
-
 	}
 
 	render() {
@@ -85,15 +84,12 @@ const styles = {
 const mapStateToProps = (state) => {
 
 	const { name, phone, shift } = state.employee
-
 	return { name, phone, shift }
 }
 
-
-
 export default connect (mapStateToProps, { 
 	createEmployee, 
-	storeEmployee 
+	storeEmployee
 })(EmployeeCreateForm)
 
 
