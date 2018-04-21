@@ -4,6 +4,8 @@ import React, { Component } from 'react'
 import { View, Text, FlatList } from 'react-native'
 import { Card, CardSection } from './common'
 
+import EmployeeDetail from './component_employee_detail'
+
 import { connect } from 'react-redux'
 
 import { fetchEmployees } from '../actions'
@@ -18,15 +20,12 @@ class EmployeeList extends Component {
 	renderEmployeeList({item}) {
 		return (
 			<CardSection>
-				<Text>{item.name}</Text>
+				<EmployeeDetail employeeProfile={item} />
 			</CardSection>
 		)
 	}
 
 	render() {
-
-		console.log('ULTIMATE', this.props.employees)
-
 		return(
 			<Card>
 				<FlatList
@@ -41,8 +40,6 @@ class EmployeeList extends Component {
 
 const mapStateToProps = ({ employees }) => {
 
-	// console.log('EMPLOYEES', employees)
-
 	const arrID = Object.keys(employees)
 	const arrEmployees = Object.values(employees)	
 	
@@ -50,11 +47,7 @@ const mapStateToProps = ({ employees }) => {
 		employee["uid"] = arrID[index]
 	})
 	
-	return { 
-
-		employees : arrEmployees
-
-	}
+	return { employees : arrEmployees }
 }
 
 export default connect(mapStateToProps, { fetchEmployees })(EmployeeList)
