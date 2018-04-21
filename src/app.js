@@ -11,8 +11,6 @@ import LoginForm from './components/component_login_form'
 import { Header } from './components/common'
 import Router from './Router'
 
-console.log(LoginForm)
-
 class App extends Component {
 
 	componentWillMount() {

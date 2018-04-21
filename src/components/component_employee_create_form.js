@@ -39,7 +39,8 @@ class EmployeeCreateForm extends Component {
 					<Picker
 						selectedValue={this.props.shift}
 						onValueChange={
-							value => this.props.createEmployee({ prop: 'shift', value })}
+							(shiftValue) => this.props.createEmployee({ key: 'shift', value: shiftValue })
+						}
 					>
 						<Picker.Item label="Monday" value="Monday" />
 						<Picker.Item label="Thursday" value="Thursday" />
@@ -75,9 +76,9 @@ const mapStateToProps = (state) => {
 
 	console.log('STATE', state)
 
-	const { name, number } = state.employee
+	const { name, number, shift } = state.employee
 
-	return { name, number }
+	return { name, number, shift }
 }
 
 
