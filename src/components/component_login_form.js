@@ -58,7 +58,7 @@ class LoginForm extends Component {
 
 	render() {
 		return(
-			<Card>
+			<View>
 
 				<CardSection>
 					<Input 
@@ -83,7 +83,7 @@ class LoginForm extends Component {
 
 				{this.renderLoadingSpinnerOrButton()}
 				
-			</Card>
+			</View>
 		)
 	}
 }

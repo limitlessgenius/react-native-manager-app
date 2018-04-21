@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { View, Text, FlatList } from 'react-native'
-import { Card, CardSection } from './common'
+import { Card } from './common'
 
 import EmployeeDetail from './component_employee_detail'
 
@@ -18,21 +18,15 @@ class EmployeeList extends Component {
 	}
 
 	renderEmployeeList({item}) {
-		return (
-			<CardSection>
-				<EmployeeDetail employeeProfile={item} />
-			</CardSection>
-		)
+		return <EmployeeDetail employee={item} />
 	}
 
 	render() {
 		return(
-			<Card>
-				<FlatList
-				  data={this.props.employees}
-				  renderItem={this.renderEmployeeList.bind(this)}
-				/>
-			</Card>
+			<FlatList
+				data={this.props.employees}
+				renderItem={this.renderEmployeeList.bind(this)}
+			/>
 		)
 	}
 	

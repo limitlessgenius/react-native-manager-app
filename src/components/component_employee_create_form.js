@@ -5,6 +5,8 @@ import { Picker, Text, View } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
 import { connect } from 'react-redux'
 
+import EmployeeShowForm from './component_employee_show_form'
+
 import { 
 	createEmployee, 
 	storeEmployee, 
@@ -23,61 +25,15 @@ class EmployeeCreateForm extends Component {
 	render() {
 		return (
 			<Card>
-				<CardSection>
-					<Input 
-						label="Name"
-						placeholder="José"
-						value={this.props.name}
-						onChangeText={value => 
-							this.props.createEmployee({ key: 'name', value })
-						}
-					/>
-				</CardSection>
-
-				<CardSection>
-					<Input 
-						label="Phone"
-						placeholder="+34660049631"
-						value={this.props.number}
-						onChangeText={value => 
-							this.props.createEmployee({ key: 'phone', value })
-						}
-					/>
-				</CardSection>
-
-				<CardSection style={{ flexDirection: 'column' }}>
-					<Text style={styles.shiftTextStyle}>Shift</Text>
-					<Picker
-						selectedValue={this.props.shift}
-						onValueChange={value => 
-							this.props.createEmployee({ key: 'shift', value })
-						}
-					>
-						<Picker.Item label="Monday" value="Monday" />
-						<Picker.Item label="Thursday" value="Thursday" />
-						<Picker.Item label="Wednesday" value="Wednesday" />
-						<Picker.Item label="Thursday" value="Thursday" />
-						<Picker.Item label="Friday" value="Friday" />
-						<Picker.Item label="Saturday" value="Saturday" />
-						<Picker.Item label="Sunday" value="Sunday" />
-					</Picker>
-				</CardSection>
-
-				<CardSection>
-					<Button onPress={this.onButtonPress.bind(this)}>
-						CREATE
-					</Button>
-				</CardSection>
+				<EmployeeShowForm />
+					<CardSection>
+						<Button onPress={this.onButtonPress.bind(this)}>
+							CREATE
+						</Button>
+					</CardSection>
 				
 			</Card>
 		)
-	}
-}
-
-const styles = {
-	shiftTextStyle: {
-		fontSize: 18, 
-		paddingLeft: 20,
 	}
 }
 
