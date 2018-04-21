@@ -1,5 +1,6 @@
 
 import firebase from 'firebase'
+import { Actions } from 'react-native-router-flux'
 
 import {
 	CREATE_EMPLOYEE, 
@@ -18,13 +19,18 @@ export const storeEmployee = ({ name, phone, shift }) => {
 	
 	const { currentUser } = firebase.auth()
 	//access logged in user
-
-	firebase.database().ref(`/users/${currentUser.uid}/employees`)
-		.push({ name, phone, shift })
+	return(dispatch) => {
+		firebase.database().ref(`/users/${currentUser.uid}/employees`)
+			.push({ name, phone, shift })
+			.then(() => dispatch({ type: STORE_EMPLOYEE }))	
+	}
+}
+	//just to pass requirement of action being dispatched
 	//from redux app state
 	//path to json datastore ... find a key
 	//access specific location of database
+	//data gets persisted
 
-}
+
 
 
