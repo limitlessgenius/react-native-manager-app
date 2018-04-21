@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { Picker, Text, View } from 'react-native'
-import { Card, CardSection, Button, Input, Spinner } from './common'
+import { Card, CardSection, Button } from './common'
 import { connect } from 'react-redux'
 
 import EmployeeShowForm from './component_employee_show_form'
@@ -25,7 +25,7 @@ class EmployeeCreateForm extends Component {
 	render() {
 		return (
 			<Card>
-				<EmployeeShowForm />
+				<EmployeeShowForm {...this.props} />
 					<CardSection>
 						<Button onPress={this.onButtonPress.bind(this)}>
 							CREATE

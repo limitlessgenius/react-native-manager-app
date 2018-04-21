@@ -67,11 +67,12 @@ const styles = {
 
 const mapStateToProps = (state) => {
 
-	console.log('NEW FORM STATE', state)
+	console.log('STATE SHOW', state)
+	return {}
 
 }
 
-export default connect(null, { createEmployee })(EmployeeShowForm)
+export default connect(mapStateToProps, { createEmployee })(EmployeeShowForm)
 
 
 
