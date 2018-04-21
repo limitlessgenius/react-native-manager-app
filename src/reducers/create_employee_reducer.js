@@ -5,14 +5,13 @@ import { CREATE_EMPLOYEE } from '../actions/types'
 const INITIAL_STATE = {
 	name: '', 
 	phone: '', 
-	shift: null
+	shift: 'Monday'
 }
 
 export default (state = INITIAL_STATE, action) => {
 
 	switch(action.type) {
 		case CREATE_EMPLOYEE: 
-			console.log('STATE', state)
 			return { ...state, [action.payload.key]: action.payload.value }
 		default: 
 			return state	

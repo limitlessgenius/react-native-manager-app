@@ -4,10 +4,18 @@ import React, { Component } from 'react'
 import { Picker, Text, View } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
 
-import { createEmployee } from '../actions'
+import { createEmployee, storeEmployee } from '../actions'
 import { connect } from 'react-redux'
 
 class EmployeeCreateForm extends Component {
+
+	onButtonPress() {
+
+		const { name, phone, shift } = this.props
+
+		this.props.storeEmployee({ name, phone, shift })
+
+	}
 
 	render() {
 		return (
@@ -38,8 +46,8 @@ class EmployeeCreateForm extends Component {
 					<Text style={styles.shiftTextStyle}>Shift</Text>
 					<Picker
 						selectedValue={this.props.shift}
-						onValueChange={
-							(shiftValue) => this.props.createEmployee({ key: 'shift', value: shiftValue })
+						onValueChange={value => 
+							this.props.createEmployee({ key: 'shift', value })
 						}
 					>
 						<Picker.Item label="Monday" value="Monday" />
@@ -53,9 +61,7 @@ class EmployeeCreateForm extends Component {
 				</CardSection>
 
 				<CardSection>
-					<Button
-						onPress={() => { console.log('NEW EMPLOYEE') }}
-					>
+					<Button onPress={this.onButtonPress.bind(this)}>
 						CREATE
 					</Button>
 				</CardSection>
@@ -74,16 +80,17 @@ const styles = {
 
 const mapStateToProps = (state) => {
 
-	console.log('STATE', state)
+	const { name, phone, shift } = state.employee
 
-	const { name, number, shift } = state.employee
-
-	return { name, number, shift }
+	return { name, phone, shift }
 }
 
 
 
-export default connect (mapStateToProps, { createEmployee })(EmployeeCreateForm)
+export default connect (mapStateToProps, { 
+	createEmployee, 
+	storeEmployee 
+})(EmployeeCreateForm)
 
 
 // Why button title doesn't display if not inside card section
