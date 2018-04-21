@@ -6,11 +6,12 @@ import LoginForm from './components/component_login_form'
 import EmployeeList from './components/component_employee_list'
 import EmployeeCreateForm from './components/component_employee_create_form'
 import EmployeeShowForm from './components/component_employee_show_form'
+import EmployeeEdit from './components/component_employee_edit'
 
 const RouterComponent = () => {
 	return (
 		<Router>
-			<Scene key="root" hideNavBar>
+			<Scene key="root" hideNavBar >
 
 				<Scene key="auth">
 					<Scene key="login" component={LoginForm} title="Login" />
@@ -26,11 +27,9 @@ const RouterComponent = () => {
 						initial
 					/>
 
-					<Scene
-						key="employeeCreate"
-						component={EmployeeCreateForm}
-						title={"Create Employee"}
-					/>
+					<Scene key="employeeEdit" component={EmployeeShowForm} title={"Edit Employee"} />
+
+					<Scene key="employeeCreate" component={EmployeeCreateForm} title={"Create Employee"} />
 				</Scene>
 
 			</Scene>

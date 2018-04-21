@@ -8,7 +8,7 @@ class EmployeeDetail extends Component {
 
 	onUserPress() {
 		
-		Actions.employeeShow({ employee: this.props.employee })
+		Actions.employeeEdit({ employee: this.props.employee })
 	}
 
 	render() {
