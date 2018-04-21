@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux'
 
 import {
 	CREATE_EMPLOYEE, 
-	STORE_EMPLOYEE
+	EMPLOYEE_CREATED
 } from './types'
 
 //modular action creator pattern to be utilized run on various different props of same obj
@@ -22,7 +22,10 @@ export const storeEmployee = ({ name, phone, shift }) => {
 	return(dispatch) => {
 		firebase.database().ref(`/users/${currentUser.uid}/employees`)
 			.push({ name, phone, shift })
-			.then(() => dispatch({ type: STORE_EMPLOYEE }))	
+			.then(() => {
+				dispatch({ type: EMPLOYEE_CREATED })
+				Actions.pop()
+			})	
 	}
 }
 	//just to pass requirement of action being dispatched
