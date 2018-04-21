@@ -19,7 +19,7 @@ class LoginForm extends Component {
 		this.props.passwordChanged(password)
 	}
 
-	onButtonPress() {
+	onButtonPress = () => {
 		const { email, password } = this.props
 		//se los pasas del estado
 		this.props.loadingLogin()
@@ -51,7 +51,7 @@ class LoginForm extends Component {
 
 		return(
 			<CardSection>
-				<Button onPress={this.onButtonPress.bind(this)}>Login</Button>
+				<Button onPress={this.onButtonPress}>Login</Button>
 			</CardSection>
 		)
 	}

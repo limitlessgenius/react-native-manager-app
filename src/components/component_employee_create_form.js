@@ -4,16 +4,20 @@ import React, { Component } from 'react'
 import { Picker, Text, View } from 'react-native'
 import { Card, CardSection, Button, Input, Spinner } from './common'
 
+import firebase from 'firebase'
 import { createEmployee, storeEmployee } from '../actions'
 import { connect } from 'react-redux'
+
 
 class EmployeeCreateForm extends Component {
 
 	onButtonPress() {
 
+		//be aware { name } === { name: name }
+
 		const { name, phone, shift } = this.props
 
-		this.props.storeEmployee({ name, phone, shift })
+		this.props.storeEmployee({ name, phone, shift: shift || 'Monday' })
 
 	}
 

@@ -1,4 +1,6 @@
 
+import firebase from 'firebase'
+
 import {
 	CREATE_EMPLOYEE, 
 	STORE_EMPLOYEE
@@ -13,7 +15,16 @@ export const createEmployee = ({ key, value }) => {
 }
 
 export const storeEmployee = ({ name, phone, shift }) => {
-	console.log('STORE EMPLOYEE', name, phone, shift)
+	
+	const { currentUser } = firebase.auth()
+	//access logged in user
+
+	firebase.database().ref(`/users/${currentUser.uid}/employees`)
+		.push({ name, phone, shift })
+	//from redux app state
+	//path to json datastore ... find a key
+	//access specific location of database
+
 }
 
 
