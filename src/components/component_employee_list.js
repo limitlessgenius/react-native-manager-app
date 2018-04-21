@@ -12,11 +12,11 @@ import { fetchEmployees } from '../actions'
 class EmployeeList extends Component {
 
 	componentWillMount() {
-
 		this.props.fetchEmployees()
+	
 	}
 
-	renderEmpployeeList({item}) {
+	renderEmployeeList({item}) {
 		return (
 			<CardSection>
 				<Text>{item.name}</Text>
@@ -30,7 +30,7 @@ class EmployeeList extends Component {
 			<Card>
 				<FlatList
 				  data={arrEmployees}
-				  renderItem={this.renderEmpployeeList.bind(this)}
+				  renderItem={this.renderEmployeeList.bind(this)}
 				/>
 			</Card>
 		)
