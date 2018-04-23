@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 import { fetchExperiences } from '../actions'
 
-import { Button, CardSection, Spinner, RoundButton } from './common' 
+import { Button, CardSection, Spinner, RoundButton, Card } from './common' 
 
 class ExperiencesList extends Component {
 
@@ -20,21 +20,20 @@ class ExperiencesList extends Component {
 
 	renderExperience({item}) {
 		return (
-			<CardSection>
-				<Button>{item.name}</Button>
-			</CardSection>
+			<View>
+				<RoundButton>{item.name}</RoundButton>
+			</View>
+			
 		)	
 	}
 
 	render() {
 		return(
-			<View>
-				<FlatList
-					data={this.props.experiences}
-					renderItem={this.renderExperience.bind(this)}
-				/>
-				<RoundButton />
-			</View>
+			<FlatList
+				horizontal={true}
+				data={this.props.experiences}
+				renderItem={this.renderExperience.bind(this)}
+			/>
 			
 		)
 	}
