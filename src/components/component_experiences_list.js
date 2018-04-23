@@ -1,16 +1,13 @@
 
 
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 
 import { connect } from 'react-redux'
 
 import { fetchExperiences } from '../actions'
 
-import { Button } from './common' 
-
-// https://manager-dev-c287d.firebaseio.com/experiences.json
-// experiences end point
+import { Button, CardSection } from './common' 
 
 class ExperiencesList extends Component {
 
@@ -18,25 +15,35 @@ class ExperiencesList extends Component {
 		this.props.fetchExperiences()	
 	}
 
-	render() {
+	renderExperience({item}) {
+		return (
+			<CardSection>
+				<Text>{item.name}</Text>
+			</CardSection>
+		)	
+	}
 
+	render() {
 		return(
-			<View>
-				<Text>LIST OF EXPERIENCES</Text>
-			</View>
+			<FlatList
+				data={this.props.arrExperience}
+				renderItem={this.renderExperience.bind(this)}
+			/>
 		)
 	}
 }
 
 const mapStateToProps = (state) => {
+	const arrExperience = []
+	
 
-	console.log('STATE', state)
-	return {
-		experiences: state.experiences
-	}
+	return { arrExperience: state.experiences }
 }
 
 export default connect(mapStateToProps, { fetchExperiences })(ExperiencesList)
+/*
+
+*/
 
 
 

@@ -5,13 +5,13 @@ import {
 	EXPERIENCES_FETCH_SUCCESS, 
 	} from '../actions/types'
 
-const INITIAL_STATE = {}
+const INITIAL_STATE = []
 
 export default (state = INITIAL_STATE, action) => {
 
 	switch(action.type) {
 		case (EXPERIENCES_FETCH_SUCCESS): 
-			return {...state, ...action.payload}
+			return action.payload
 		default: 
 			return state
 	}
