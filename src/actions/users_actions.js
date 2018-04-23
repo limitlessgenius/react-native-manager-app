@@ -1,11 +1,20 @@
 
 
 
+import firebase from 'firebase'
+
+
 
 export const fetchUsers = () => {
-	return {
-		type: 'FETCH_USERS_SUCCESS'
+	// https://manager-dev-c287d.firebaseio.com/experiences.json
+	// FIREBASE DATABASE END POINT
+	return(dispatch) => {
+		firebase.database().ref(`/users/`)
+			.on('value', snapshot => {
+				dispatch({
+					type: 'FETCH_USERS_SUCCESS', 
+					payload: snapshot.val()
+				})	
+		})	
 	}
 }
-
-

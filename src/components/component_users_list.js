@@ -12,9 +12,10 @@ import { fetchUsers } from '../actions'
 class UsersList extends Component {
 
 	componentWillMount() {
-	
-		console.log(this.props.selectedActivity)
-
+		
+		const { selectedActivity } = this.props
+		
+		console.log('FETCH', this.props.fetchUsers())	
 	}
 
 	render() {
