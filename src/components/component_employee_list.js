@@ -3,9 +3,6 @@
 import React, { Component } from 'react'
 import { View, Text, FlatList } from 'react-native'
 import { Card } from './common'
-
-import EmployeeDetail from './component_employee_detail'
-
 import { connect } from 'react-redux'
 import { fetchEmployees } from '../actions'
 

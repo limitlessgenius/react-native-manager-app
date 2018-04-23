@@ -1,18 +1,11 @@
 
 import React, { Component } from 'react'
 import { View, Text, FlatList } from 'react-native'
-
 import { connect } from 'react-redux'
 import { fetchUsers, fetchExperiences } from '../actions'
-
-import { Avatar } from 'react-native-elements'
-
 import { CardSection } from './common'
 
-console.log('AVATAR', Avatar)
-
-
-
+import UserRow from './component_user_row'
 
 class UsersList extends Component {
 
@@ -40,16 +33,9 @@ class UsersList extends Component {
 					data={this.renderFilteredUsers()}
 					renderItem={({item}) => {
 						return (
-							<CardSection>
-								<Text>{item.name}</Text>
-								<Avatar
-									medium
-									source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg"}}
-									onPress={() => console.log("Works!")}
-									activeOpacity={0.7}
-								/>
-							</CardSection>
-							
+							<UserRow 
+								user={item}
+							/>
 						)
 					}}
 				/>

@@ -16,11 +16,11 @@ const RouterComponent = () => {
 		<Router>
 			<Scene key="root" hideNavBar >
 
-				<Scene key="auth" initial>
+				<Scene key="auth">
 					<Scene key="login" component={LoginForm} title="Login" />
 				</Scene>
 
-				<Scene key="main">
+				<Scene key="main" initial>
 
 					<Scene
 						key="experiencesList"
@@ -34,7 +34,6 @@ const RouterComponent = () => {
 						component={UsersList}
 						title="Users"
 						onBack={() => console.log('BACK')}
-
 					/>
 					<Scene 
 						key="employeeList" 
@@ -42,9 +41,7 @@ const RouterComponent = () => {
 						title="Employees" 
 						rightTitle="Add"
 						onRight={() => Actions.employeeCreate()}
-
 					/>
-
 					<Scene key="employeeEdit" component={EmployeeShowForm} title={"Edit Employee"} />
 					<Scene key="employeeCreate" component={EmployeeCreateForm} title={"Create Employee"} />
 				</Scene>
