@@ -7,34 +7,43 @@ import { connect } from 'react-redux'
 
 import { fetchExperiences } from '../actions'
 
-import { Button, CardSection } from './common' 
+import { Button, CardSection, Spinner, RoundButton } from './common' 
 
 class ExperiencesList extends Component {
 
 	componentWillMount() {
 		this.props.fetchExperiences()	
+
+
+		
 	}
 
 	renderExperience({item}) {
 		return (
 			<CardSection>
-				<Text>{item.name}</Text>
+				<Button>{item.name}</Button>
 			</CardSection>
 		)	
 	}
 
 	render() {
 		return(
-			<FlatList
-				data={this.props.experiences}
-				renderItem={this.renderExperience.bind(this)}
-			/>
+			<View>
+				<FlatList
+					data={this.props.experiences}
+					renderItem={this.renderExperience.bind(this)}
+				/>
+				<RoundButton />
+			</View>
+			
 		)
 	}
 }
 
 const mapStateToProps = ({ experiences }) => {
-	
+
+	console.log(experiences)
+
 	return { experiences }
 }
 
