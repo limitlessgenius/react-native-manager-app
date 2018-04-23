@@ -7,27 +7,17 @@ import {
 import firebase from 'firebase'
 
 export const fetchExperiences = () => {
-
-
+	// https://manager-dev-c287d.firebaseio.com/experiences.json
+	// FIREBASE DATABASE END POINT
 	return(dispatch) => {
 		firebase.database().ref(`/experiences/`)
 			.on('value', snapshot => {
-				console.log('ASYNC', snapshot)
-				dispatch({type: 'TEST'})	
+				dispatch({
+					type: EXPERIENCES_FETCH_SUCCESS, 
+					payload: snapshot.val()
+				})	
 		})	
 	}
-	
-
-	// return(dispatch) => {
-	// 	firebase.database().ref(`/experiences/`)
-	// 	.on('value', snapshot => {
-
-	// 		dispatch({
-	// 			type: EXPERIENCES_FETCH_SUCCESS, 
-	// 			payload: snapshot.val()
-	// 		})
-	// 	})	
-	// }
 }
 
 
