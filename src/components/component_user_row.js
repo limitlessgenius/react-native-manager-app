@@ -2,16 +2,15 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableHighlight } from 'react-native'
 import { Card, Button } from 'react-native-elements'
-import { Avatar } from 'react-native-elements'
-
 import { CardSection } from './common'
 
-// import { SocialIcon } from 'react-native-elements'
 
-// // Icon
-// <SocialIcon
-//   type='twitter'
-// />
+import Ripple from 'react-native-material-ripple';
+
+import { 
+	Avatar, 
+	SocialIcon 
+	} from 'react-native-elements'
 
 class UserRow extends Component {
 
@@ -19,9 +18,9 @@ class UserRow extends Component {
 		const { name, image } = this.props.user
 
 		return (
-
-			<TouchableHighlight>
-
+			<Ripple
+				rippleDuration={800}
+			>
 				<CardSection>
 					<Avatar 
 						large
@@ -32,7 +31,7 @@ class UserRow extends Component {
 					/>
 					<Text>{name}</Text>
 				</CardSection>
-			</TouchableHighlight>
+			</Ripple>
 		)
 	}
 }
