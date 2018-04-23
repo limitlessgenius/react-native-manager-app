@@ -19,7 +19,9 @@ class UsersList extends Component {
 		
 		// console.log('SELECTED EXPERIENCE', this.props.selectedExperience)
 
-		// console.log('ALL USERS', this.props.users)
+		users = this.props.users.filter(user => user.selectedExperience===this.props.selectedExperience)
+		// console.log('ALL USERS', )
+		return users
 		
 	}
 
@@ -28,17 +30,20 @@ class UsersList extends Component {
 	}
 
 	render() {
-		this.renderFilteredUsers()
+		// console.log('FILTERED LIST', this.renderFilteredUsers())
+		//Why undefined ???
 		return (
 			<View>
 				<FlatList 
-					data={this.props.users}
+					data={this.renderFilteredUsers()}
 					renderItem={({item}) => {
 						return (
 							<Text>{item.name}</Text>
 						)
 					}}
 				/>
+
+	
 	
 			</View>
 		)
