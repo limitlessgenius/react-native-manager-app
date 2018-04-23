@@ -20,6 +20,7 @@ class UserRow extends Component {
 		return (
 			<Ripple
 				rippleDuration={800}
+				onPress={() => console.log('NEXT: CARD DETAIL')}
 			>
 				<CardSection>
 					<Avatar 
