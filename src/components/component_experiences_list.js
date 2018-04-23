@@ -42,7 +42,6 @@ class ExperiencesList extends Component {
 			<View style={styles.pannelStyle}>
 				<FlatList
 					centerContent={true}
-
 					numColumns={3}
 					data={this.props.experiences}
 					renderItem={this.renderExperience.bind(this)}

@@ -5,24 +5,26 @@ import { View, Text, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import { fetchUsers, fetchExperiences } from '../actions'
 
+import { Avatar } from 'react-native-elements'
+
+import { CardSection } from './common'
+
+console.log('AVATAR', Avatar)
+
+
+
 
 class UsersList extends Component {
 
-
-
 	componentWillMount() {
-		
 		this.props.fetchUsers()
 	}
 
 	renderFilteredUsers() {
-		
 		// console.log('SELECTED EXPERIENCE', this.props.selectedExperience)
-
 		users = this.props.users.filter(user => user.selectedExperience===this.props.selectedExperience)
 		// console.log('ALL USERS', )
 		return users
-		
 	}
 
 	componentWillUnmount() {
@@ -38,22 +40,26 @@ class UsersList extends Component {
 					data={this.renderFilteredUsers()}
 					renderItem={({item}) => {
 						return (
-							<Text>{item.name}</Text>
+							<CardSection>
+								<Text>{item.name}</Text>
+								<Avatar
+									medium
+									source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg"}}
+									onPress={() => console.log("Works!")}
+									activeOpacity={0.7}
+								/>
+							</CardSection>
+							
 						)
 					}}
 				/>
-
-	
-	
 			</View>
 		)
 	}
 }
 
 const mapStateToProps = (state) => {
-
 	const { users } = state
-
 	return { users }
 }
 
