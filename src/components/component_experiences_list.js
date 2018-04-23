@@ -9,6 +9,8 @@ import { fetchExperiences } from '../actions'
 
 import { Button, CardSection, Spinner, RoundButton, Card } from './common' 
 
+import { Actions } from 'react-native-router-flux'
+
 class ExperiencesList extends Component {
 
 	componentWillMount() {
@@ -21,6 +23,10 @@ class ExperiencesList extends Component {
 			<View>
 				<RoundButton 
 					customStyle={styles.roundButtonCustomStyle}
+					onPress={() => {
+						console.log('USERS')
+						Actions.usersList()
+					}}
 				>
 					{item.name}
 				</RoundButton>

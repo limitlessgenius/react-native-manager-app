@@ -9,6 +9,8 @@ import EmployeeShowForm from './components/component_employee_show_form'
 import EmployeeEdit from './components/component_employee_edit'
 import ExperiencesList from './components/component_experiences_list'
 
+import UsersList from './components/component_users_list'
+
 const RouterComponent = () => {
 	return (
 		<Router>
@@ -21,10 +23,15 @@ const RouterComponent = () => {
 				<Scene key="main" initial>
 
 					<Scene
-						key="experience"
+						key="experiencesList"
 						component={ExperiencesList}
 						title="Experiences"
 						initial
+					/>
+					<Scene
+						key="usersList"
+						component={UsersList}
+						title="Users"
 					/>
 					<Scene 
 						key="employeeList" 
