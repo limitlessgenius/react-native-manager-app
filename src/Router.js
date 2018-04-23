@@ -7,6 +7,7 @@ import EmployeeList from './components/component_employee_list'
 import EmployeeCreateForm from './components/component_employee_create_form'
 import EmployeeShowForm from './components/component_employee_show_form'
 import EmployeeEdit from './components/component_employee_edit'
+import ActivitiesList from './components/component_experiences_list'
 
 const RouterComponent = () => {
 	return (
@@ -18,17 +19,22 @@ const RouterComponent = () => {
 				</Scene>
 
 				<Scene key="main">
+
+					<Scene
+						key="activitiesList"
+						component={ActivitiesList}
+						title="Experiences"
+						initial
+					/>
 					<Scene 
 						key="employeeList" 
 						component={EmployeeList} 
 						title="Employees" 
 						rightTitle="Add"
 						onRight={() => Actions.employeeCreate()}
-						initial
 					/>
 
 					<Scene key="employeeEdit" component={EmployeeShowForm} title={"Edit Employee"} />
-
 					<Scene key="employeeCreate" component={EmployeeCreateForm} title={"Create Employee"} />
 				</Scene>
 
