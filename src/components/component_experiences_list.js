@@ -7,10 +7,15 @@ import { connect } from 'react-redux'
 
 import { fetchExperiences } from '../actions'
 
+// https://manager-dev-c287d.firebaseio.com/experiences.json
+// experiences end point
+class ExperiencesList extends Component {
 
-class ActivitiesList extends Component {
+	componentWillMount() {
+		this.props.fetchExperiences()	
+	}
+
 	render() {
-		this.props.fetchExperiences()
 		return(
 			<View>
 				<Text>LIST OF EXPERIENCES</Text>
@@ -19,7 +24,7 @@ class ActivitiesList extends Component {
 	}
 }
 
-export default connect(null, { fetchExperiences })(ActivitiesList)
+export default connect(null, { fetchExperiences })(ExperiencesList)
 
 
 
