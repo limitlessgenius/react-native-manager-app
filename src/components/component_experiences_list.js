@@ -26,18 +26,16 @@ class ExperiencesList extends Component {
 	render() {
 		return(
 			<FlatList
-				data={this.props.arrExperience}
+				data={this.props.experiences}
 				renderItem={this.renderExperience.bind(this)}
 			/>
 		)
 	}
 }
 
-const mapStateToProps = (state) => {
-	const arrExperience = []
+const mapStateToProps = ({ experiences }) => {
 	
-
-	return { arrExperience: state.experiences }
+	return { experiences }
 }
 
 export default connect(mapStateToProps, { fetchExperiences })(ExperiencesList)
