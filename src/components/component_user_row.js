@@ -4,6 +4,8 @@ import { View, Text, TouchableHighlight } from 'react-native'
 import { Card, Button } from 'react-native-elements'
 import { CardSection } from './common'
 
+import { Actions } from 'react-native-router-flux'
+
 
 import Ripple from 'react-native-material-ripple';
 
@@ -14,13 +16,18 @@ import {
 
 class UserRow extends Component {
 
+	onButtonPress(user) {
+
+		Actions.userCardDetail({ user })
+	}
+
 	render() {
 		const { name, image } = this.props.user
 
 		return (
 			<Ripple
 				rippleDuration={800}
-				onPress={() => console.log('NEXT: CARD DETAIL')}
+				onPress={this.onButtonPress.bind(this, this.props.user)}
 			>
 				<CardSection>
 					<Avatar 
@@ -38,56 +45,4 @@ class UserRow extends Component {
 }
 
 export default UserRow
-
-//<Text>{name}</Text>
-
-// renderCard(card) {
-//     return (
-//       <Card
-//         key={card.id}
-//         title={card.text}
-//         image={{ uri: card.uri }}
-//       >
-//         <Text style={{marginBottom: 10}}>
-//           USER NAME
-//         </Text>
-//         <Button
-          
-//           backgroundColor="#03A9F4"
-//           title="GO"
-//         >
-//         </Button>
-//       </Card>
-//     )
-//   }
-
-/*
-<CardSection>
-	<Avatar
-		large
-		source={{uri: item.image}}
-		activeOpacity={0.7}
-	/>
-</CardSection>
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

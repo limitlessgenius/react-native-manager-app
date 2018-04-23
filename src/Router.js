@@ -10,6 +10,7 @@ import EmployeeEdit from './components/component_employee_edit'
 import ExperiencesList from './components/component_experiences_list'
 
 import UsersList from './components/component_users_list'
+import UserCard from './components/component_user_card'
 
 const RouterComponent = () => {
 	return (
@@ -27,13 +28,16 @@ const RouterComponent = () => {
 						component={ExperiencesList}
 						title="Experiences"
 						initial
-						onBack={() => console.log('BACK')}
 					/>
 					<Scene
 						key="usersList"
 						component={UsersList}
 						title="Users"
-						onBack={() => console.log('BACK')}
+					/>
+					<Scene
+						key="userCardDetail"
+						component={UserCard}
+						title="Users"
 					/>
 					<Scene 
 						key="employeeList" 

@@ -1,14 +1,9 @@
 
-
 import React, { Component } from 'react'
 import { View, Text, FlatList } from 'react-native'
-
 import { connect } from 'react-redux'
-
 import { fetchExperiences } from '../actions'
-
 import { Button, CardSection, Spinner, RoundButton, Card } from './common' 
-
 import { Actions } from 'react-native-router-flux'
 
 class ExperiencesList extends Component {
