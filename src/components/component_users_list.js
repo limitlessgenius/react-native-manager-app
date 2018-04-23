@@ -13,7 +13,7 @@ class UsersList extends Component {
 
 	componentWillMount() {
 	
-		this.props.fetchUsers()
+		console.log(this.props.selectedActivity)
 
 	}
 

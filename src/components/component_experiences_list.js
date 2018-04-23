@@ -17,16 +17,19 @@ class ExperiencesList extends Component {
 		this.props.fetchExperiences()	
 	}
 
+	onButtonPress (selectedActivity) {
+		
+		Actions.usersList({selectedActivity})
+
+	}
+
 	renderExperience({item}) {
 
 		return (
 			<View>
 				<RoundButton 
 					customStyle={styles.roundButtonCustomStyle}
-					onPress={() => {
-						console.log('USERS')
-						Actions.usersList()
-					}}
+					onPress={this.onButtonPress.bind(this, item.name)}
 				>
 					{item.name}
 				</RoundButton>
