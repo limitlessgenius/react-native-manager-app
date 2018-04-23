@@ -17,9 +17,9 @@ class ExperiencesList extends Component {
 		this.props.fetchExperiences()	
 	}
 
-	onButtonPress (selectedActivity) {
+	onButtonPress (selectedExperience) {
 		
-		Actions.usersList({selectedActivity})
+		Actions.usersList({selectedExperience})
 
 	}
 

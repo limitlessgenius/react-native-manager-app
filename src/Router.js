@@ -27,11 +27,14 @@ const RouterComponent = () => {
 						component={ExperiencesList}
 						title="Experiences"
 						initial
+						onBack={() => console.log('BACK')}
 					/>
 					<Scene
 						key="usersList"
 						component={UsersList}
 						title="Users"
+						onBack={() => console.log('BACK')}
+
 					/>
 					<Scene 
 						key="employeeList" 
@@ -39,6 +42,7 @@ const RouterComponent = () => {
 						title="Employees" 
 						rightTitle="Add"
 						onRight={() => Actions.employeeCreate()}
+
 					/>
 
 					<Scene key="employeeEdit" component={EmployeeShowForm} title={"Edit Employee"} />

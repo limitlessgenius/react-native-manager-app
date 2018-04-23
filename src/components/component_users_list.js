@@ -3,29 +3,32 @@ import React, { Component } from 'react'
 import { View, Text, FlatList } from 'react-native'
 
 import { connect } from 'react-redux'
-import { fetchUsers } from '../actions'
+import { fetchUsers, fetchExperiences } from '../actions'
+
 
 class UsersList extends Component {
 
+
+
 	componentWillMount() {
-		const { selectedActivity } = this.props
+		
 		this.props.fetchUsers()
 	}
 
 	renderFilteredUsers() {
-
-		const { users } = this.props
-
-
 		
-		users.forEach(user => console.log(user))
+		// console.log('SELECTED EXPERIENCE', this.props.selectedExperience)
 
+		// console.log('ALL USERS', this.props.users)
+		
 	}
 
-
+	componentWillUnmount() {
+		this.props.fetchExperiences()
+	}
 
 	render() {
-
+		this.renderFilteredUsers()
 		return (
 			<View>
 				<FlatList 
@@ -36,9 +39,7 @@ class UsersList extends Component {
 						)
 					}}
 				/>
-
-
-				
+	
 			</View>
 		)
 	}
@@ -46,15 +47,15 @@ class UsersList extends Component {
 
 const mapStateToProps = (state) => {
 
-
-
-
 	const { users } = state
 
 	return { users }
 }
 
-export default connect(mapStateToProps, { fetchUsers })(UsersList)
+export default connect(mapStateToProps, { 
+	fetchUsers, 
+	fetchExperiences
+})(UsersList)
 
 
 
