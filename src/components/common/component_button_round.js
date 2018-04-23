@@ -3,14 +3,14 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
-const RoundButton = ({ onPress, children }) => {
+const RoundButton = ({ onPress, children, customStyle }) => {
 
 	const { roundButtonStyle, textStyle } = styles
 
 	return (
 		<TouchableOpacity 
 			onPress={onPress}
-			style={roundButtonStyle}>
+			style={[roundButtonStyle, customStyle]}>
 			<Text style={textStyle}>
 				{children}
 			</Text>
@@ -20,9 +20,9 @@ const RoundButton = ({ onPress, children }) => {
 
 const styles = {
 	roundButtonStyle: {
-		width: 60,
-	    height: 60,
-	    borderRadius: 60/2,
+		width: 75,
+	    height: 75,
+	    borderRadius: 75/2,
 	    backgroundColor: 'blue'
 	}
 	// buttonStyle: {

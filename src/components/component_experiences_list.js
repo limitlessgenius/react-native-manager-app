@@ -13,29 +13,48 @@ class ExperiencesList extends Component {
 
 	componentWillMount() {
 		this.props.fetchExperiences()	
-
-
-		
 	}
 
 	renderExperience({item}) {
+
 		return (
 			<View>
-				<RoundButton>{item.name}</RoundButton>
+				<RoundButton 
+					customStyle={styles.roundButtonCustomStyle}
+				>
+					{item.name}
+				</RoundButton>
 			</View>
-			
 		)	
 	}
 
 	render() {
 		return(
-			<FlatList
-				horizontal={true}
-				data={this.props.experiences}
-				renderItem={this.renderExperience.bind(this)}
-			/>
-			
+			<View style={styles.pannelStyle}>
+				<FlatList
+					centerContent={true}
+
+					numColumns={3}
+					data={this.props.experiences}
+					renderItem={this.renderExperience.bind(this)}
+				/>
+			</View>
 		)
+	}
+}
+
+const styles = {
+
+	roundButtonCustomStyle: {
+		marginRight: 15, 
+		marginBottom: 15
+	},
+
+	pannelStyle: {
+		backgroundColor: 'white', 
+		alignItems: 'center', 
+		justifyContent: 'center', 
+		flex: 1, 
 	}
 }
 
