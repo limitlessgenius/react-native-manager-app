@@ -1,35 +1,53 @@
 
-
-
-
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 
 import { connect } from 'react-redux'
-
 import { fetchUsers } from '../actions'
 
 class UsersList extends Component {
 
 	componentWillMount() {
-		
 		const { selectedActivity } = this.props
-		
 		this.props.fetchUsers()
 	}
 
+	renderFilteredUsers() {
+
+		const { users } = this.props
+
+
+		
+		users.forEach(user => console.log(user))
+
+	}
+
+
+
 	render() {
 
-		console.log('USERS LIST IN', this.props.users)
 		return (
 			<View>
-				<Text>USER LIST</Text>
+				<FlatList 
+					data={this.props.users}
+					renderItem={({item}) => {
+						return (
+							<Text>{item.name}</Text>
+						)
+					}}
+				/>
+
+
+				
 			</View>
 		)
 	}
 }
 
 const mapStateToProps = (state) => {
+
+
+
 
 	const { users } = state
 
