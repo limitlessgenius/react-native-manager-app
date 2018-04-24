@@ -1,22 +1,30 @@
 
 
-
-
 import React, { Component } from 'react'
-
 import { View, Text } from 'react-native'
+
+import { GiftedChat } from 'react-native-gifted-chat';
 
 
 class ChatRoom extends Component {
-	render() {
-		return (
-			<View>
-				<Text>CHAT ROOM HERE</Text>
-			</View>
-		)
-	}
-}
 
+  state = {
+    messages: [],
+  };
+
+  render() {
+    return (
+      <GiftedChat
+        messages={this.state.messages}
+        onSend={(messages) => this.onSend(messages)}
+        user={{
+          _id: 1,
+        }}
+      />
+    );
+  }
+
+}
 export default ChatRoom
 
 
