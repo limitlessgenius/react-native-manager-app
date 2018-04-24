@@ -12,6 +12,8 @@ import ExperiencesList from './components/component_experiences_list'
 import UsersList from './components/component_users_list'
 import UserCard from './components/component_user_card'
 
+import ChatRoom from './components/component_chat_room'
+
 const RouterComponent = () => {
 	return (
 		<Router>
@@ -38,6 +40,11 @@ const RouterComponent = () => {
 						key="userCardDetail"
 						component={UserCard}
 						title="Users"
+					/>
+					<Scene
+						key="interactiveChatRoom"
+						component={ChatRoom}
+						title="Chat"
 					/>
 					<Scene 
 						key="employeeList" 
