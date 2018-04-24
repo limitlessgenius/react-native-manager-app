@@ -6,6 +6,8 @@ import { fetchExperiences } from '../actions'
 import { Button, CardSection, Spinner, RoundButton, Card } from './common' 
 import { Actions } from 'react-native-router-flux'
 
+import * as Animatable from 'react-native-animatable';
+
 class ExperiencesList extends Component {
 
 	componentWillMount() {
@@ -21,14 +23,13 @@ class ExperiencesList extends Component {
 	renderExperience({item}) {
 
 		return (
-			<View>
+			<Animatable.View animation="zoomIn">
 				<RoundButton 
 					customStyle={styles.roundButtonCustomStyle}
 					onPress={this.onButtonPress.bind(this, item.name)}
-				>
-					{item.name}
-				</RoundButton>
-			</View>
+				/>
+				<Text style={{alignSelf: 'center', paddingRight: 17}}>{item.name}</Text>
+			</Animatable.View>
 		)	
 	}
 
@@ -50,7 +51,8 @@ const styles = {
 
 	roundButtonCustomStyle: {
 		marginRight: 15, 
-		marginBottom: 15
+		marginBottom: 10, 
+		marginTop: 10
 	},
 
 	pannelStyle: {
