@@ -28,8 +28,9 @@ class UsersList extends Component {
 		// console.log('FILTERED LIST', this.renderFilteredUsers())
 		//Why undefined ???
 		return (
-			<View>
+			<View style={{ flex: 1, backgroundColor: 'white' }}>
 				<FlatList 
+					style={{ backgroundColor: 'white' }}
 					data={this.renderFilteredUsers()}
 					renderItem={({item}) => {
 						return (

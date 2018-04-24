@@ -16,6 +16,7 @@ import ChatRoom from './components/component_chat_room'
 
 const RouterComponent = () => {
 	return (
+
 		<Router>
 			<Scene key="root" hideNavBar >
 
@@ -59,6 +60,7 @@ const RouterComponent = () => {
 
 			</Scene>
 		</Router>
+
 	)
 }
 

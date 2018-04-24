@@ -31,6 +31,7 @@ class UserCard extends Component {
 						buttonStyle={{ width: 300 }}
 						backgroundColor="#03A9F4"
 			          	title="Chat Now"
+			          	onPress={this.onCardPress.bind(this)}
 					/>
 				</CardSection>
 			
@@ -46,12 +47,13 @@ class UserCard extends Component {
 		return (
 
 			<CustomCard style={{ flex: 1 }}>
-				<TouchableWithoutFeedback onPress={this.onCardPress.bind(this)}>
+				<TouchableWithoutFeedback 
+				style={{ flex: 2 }}
+				onPress={this.onCardPress.bind(this)}>
 					<View style={styles.container}>
 					{this.renderCard()}
 					</View>
 				</TouchableWithoutFeedback>
-				<Text>MAP SECTION</Text>
 			</CustomCard>
 		)
 	}

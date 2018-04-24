@@ -8,15 +8,20 @@ import { Actions } from 'react-native-router-flux'
 
 import * as Animatable from 'react-native-animatable';
 
+import LinearGradient from 'react-native-linear-gradient'
+
+
+console.log('GRADIENT', LinearGradient)
+
 class ExperiencesList extends Component {
 
 	componentWillMount() {
 		this.props.fetchExperiences()	
 	}
 
-	onButtonPress (selectedExperience) {
-		
-		Actions.usersList({selectedExperience})
+	onButtonPress (selectedExperience) { 
+
+		Actions.usersList({selectedExperience}) 
 
 	}
 
@@ -43,6 +48,7 @@ class ExperiencesList extends Component {
 					renderItem={this.renderExperience.bind(this)}
 				/>
 			</View>
+
 		)
 	}
 }
