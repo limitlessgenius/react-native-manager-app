@@ -54,7 +54,7 @@ class ChatRoom extends Component {
 		       		renderItem={this.renderItem.bind(this)} 
 		       		inverted
 		      	/>
-			    <View style={styles.footer}>
+		  		<View style={styles.footer}>
 					<TextInput
 						value={this.state.typing}
 						onChangeText={text => this.setState({typing: text})}
