@@ -10,7 +10,6 @@ import { Button, Card, Avatar } from 'react-native-elements'
 
 import { CardSection, CustomCard } from './common'
 
-
 class UserCard extends Component {
 
 	renderCard () {

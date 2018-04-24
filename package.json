@@ -17,6 +17,7 @@
     "react-native-livechat": "^1.0.22",
     "react-native-material-ripple": "^0.8.0",
     "react-native-router-flux": "^4.0.0-beta.28",
+    "react-native-training-chat-server": "^2.0.0",
     "react-native-vector-icons": "^4.6.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",

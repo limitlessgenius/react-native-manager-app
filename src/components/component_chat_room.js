@@ -1,10 +1,21 @@
 
 
+import firebase from 'firebase'
+
+console.log(firebase)
+
+
+
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 
-// FRESH START
+import {send, subscribe} from 'react-native-training-chat-server';
+//CHAT
+
+
+
 class ChatRoom extends Component {
+
 
   render() {
     return (
@@ -14,5 +25,7 @@ class ChatRoom extends Component {
 
 }
 export default ChatRoom
+
+
 
 
