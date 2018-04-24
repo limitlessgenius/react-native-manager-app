@@ -26,7 +26,7 @@ class UserRow extends Component {
 
 		return (
 			<Ripple
-				rippleDuration={800}
+				rippleDuration={600}
 				onPress={this.onButtonPress.bind(this, this.props.user)}
 			>
 				<CardSection>

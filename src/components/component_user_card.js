@@ -6,10 +6,29 @@ import { View, Text, TouchableWithoutFeedback } from 'react-native'
 
 import { Actions } from 'react-native-router-flux'
 
+import { Button, Card } from 'react-native-elements'
+
 
 class UserCard extends Component {
 
-
+	renderCard () {
+		/*
+		<Card
+			key={card.id}
+			title={card.text}
+			image={{ uri: card.uri }}
+			>
+			<Text style={{marginBottom: 10}}>
+				USER NAME
+			</Text>
+			<Button
+				backgroundColor="#03A9F4"
+			    title="GO"
+			/>
+		</Card>
+		*/
+	}
+	   
 	onCardPress () {
 
 		Actions.interactiveChatRoom()
@@ -22,7 +41,7 @@ class UserCard extends Component {
 
 			<TouchableWithoutFeedback onPress={this.onCardPress.bind(this)}>
 				<View>
-					<Text>CARD DETAIL</Text>
+					<Card></Card>	
 				</View>
 			</TouchableWithoutFeedback>
 		)
@@ -32,6 +51,9 @@ class UserCard extends Component {
 
 
 export default UserCard
+
+
+
 
 
 
