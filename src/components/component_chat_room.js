@@ -5,7 +5,7 @@ import { View, Text } from 'react-native'
 
 import { GiftedChat } from 'react-native-gifted-chat';
 
-
+// FRESH START
 class ChatRoom extends Component {
 
   state = {
