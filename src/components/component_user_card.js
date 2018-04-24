@@ -2,65 +2,94 @@
 
 
 import React, { Component } from 'react'
-import { View, Text, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, TouchableWithoutFeedback, Image } from 'react-native'
 
 import { Actions } from 'react-native-router-flux'
 
-import { Button, Card } from 'react-native-elements'
+import { Button, Card, Avatar } from 'react-native-elements'
+
+import { CardSection, CustomCard } from './common'
 
 
 class UserCard extends Component {
 
 	renderCard () {
-		/*
-		<Card
-			key={card.id}
-			title={card.text}
-			image={{ uri: card.uri }}
-			>
-			<Text style={{marginBottom: 10}}>
-				USER NAME
-			</Text>
-			<Button
-				backgroundColor="#03A9F4"
-			    title="GO"
-			/>
-		</Card>
-		*/
+
+		const {image, name, selectedExperience } = this.props.user
+		
+		return(
+			<CardSection style={
+				{flexDirection: 'column', 
+				justifyContent: 'center', 
+				alignItems: 'center'}}>
+				<Image
+					style={{width: 300, height: 250}}
+				    source={{uri: 'https://randomuser.me/api/portraits/women/93.jpg'}}
+				/>
+				<CardSection>
+					<Button
+						buttonStyle={{ width: 300 }}
+						backgroundColor="#03A9F4"
+			          	title="Chat Now"
+					/>
+				</CardSection>
+			
+			</CardSection>
+		    
+		)
 	}
 	   
-	onCardPress () {
-
-		Actions.interactiveChatRoom()
-	}
-
+	onCardPress () { Actions.interactiveChatRoom() }
 
 	render() {
-		console.log('USER CARD DETAIL', this.props.user)
+
 		return (
 
-			<TouchableWithoutFeedback onPress={this.onCardPress.bind(this)}>
-				<View>
-					<Card></Card>	
-				</View>
-			</TouchableWithoutFeedback>
+			<CustomCard style={{ flex: 1 }}>
+				<TouchableWithoutFeedback onPress={this.onCardPress.bind(this)}>
+					<View style={styles.container}>
+					{this.renderCard()}
+					</View>
+				</TouchableWithoutFeedback>
+				<Text>MAP SECTION</Text>
+			</CustomCard>
 		)
 	}
 }
 
-
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+};
 
 export default UserCard
 
 
+/*
+<Image
+	style={{width: 100, height: 100}}
+    source={{uri: 'https://randomuser.me/api/portraits/women/93.jpg'}}
+/>
+*/
 
-
-
-
-
-
-
-
+/*
+<Card
+		        key={name}
+		        title={name}
+		        image={{ uri: "https://randomuser.me/api/portraits/women/93.jpg" }}
+		      >
+		        <Text style={{marginBottom: 10}}>
+		          USER NAME
+		        </Text>
+		        <Button
+		          backgroundColor="#03A9F4"
+		          title="GO"
+		        >
+		        </Button>
+		    </Card>
+*/
 
 
 
