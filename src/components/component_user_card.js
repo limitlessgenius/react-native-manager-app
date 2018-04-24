@@ -10,11 +10,16 @@ import { Button, Card, Avatar } from 'react-native-elements'
 
 import { CardSection, CustomCard } from './common'
 
+import * as Animatable from 'react-native-animatable';
+
+// lightSpeedOut
+
 class UserCard extends Component {
 
-	renderCard () {
 
+	renderCard () {
 		const {image, name, selectedExperience } = this.props.user
+		const strImage = image.split('med/').join('')
 		
 		return(
 			<CardSection style={
@@ -22,20 +27,18 @@ class UserCard extends Component {
 				justifyContent: 'center', 
 				alignItems: 'center'}}>
 				<Image
-					style={{width: 300, height: 250}}
-				    source={{uri: 'https://randomuser.me/api/portraits/women/93.jpg'}}
+					style={{width: 300, height: 300}}
+				    source={{ uri: strImage }}
 				/>
 				<CardSection>
 					<Button
 						buttonStyle={{ width: 300 }}
 						backgroundColor="#03A9F4"
-			          	title="Chat Now"
-			          	onPress={this.onCardPress.bind(this)}
+					    title="Chat Now"
+					    onPress={this.onCardPress.bind(this)}
 					/>
 				</CardSection>
-			
 			</CardSection>
-		    
 		)
 	}
 	   

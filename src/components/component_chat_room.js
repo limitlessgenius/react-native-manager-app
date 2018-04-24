@@ -2,7 +2,7 @@
 
 import firebase from 'firebase'
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { Text, View, FlatList } from 'react-native';
 
 import { send, subscribe } from 'react-native-training-chat-server';
 //Change Firebase APP Name To Run Them Jointly
@@ -24,11 +24,28 @@ class ChatRoom extends Component {
   }
 
   render() {
+  	console.log('***IN CHAT ROOM')
 	return (
-		<View>CHAT ROOM</View>
+		<View style={styles.containerStyle}>
+			<FlatList 
+	        	data={this.state.messages} 
+	        	renderItem={this.renderItem} 
+	        	inverted
+	        />
+        </View>
     );
   }
 }
+
+const styles = {
+  containerStyle: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+};
+
 export default ChatRoom
 
 

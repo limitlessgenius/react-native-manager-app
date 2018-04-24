@@ -25,11 +25,6 @@ class App extends Component {
 		};
 
 		firebase.initializeApp(config)
-
-
-		//defaultApp.name_ = "[DEFAULT-APPLICATION]"
-
-
 	}
 	render() {
 		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk))
