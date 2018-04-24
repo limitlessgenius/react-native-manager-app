@@ -42,16 +42,16 @@ class ChatRoom extends Component {
 	  });
 	}
 
+	renderItem({item}) {
+		return <Text>{item.message}</Text>    			
+	}
+
 	render() {
 		return (
 			<View style={styles.containerStyle}>
 				<FlatList 
 		       		data={this.state.messages} 
-		       		renderItem={({item}) => {
-		       			return (
-		       				<Text>{item.message}</Text>
-		       			)
-		       		}} 
+		       		renderItem={this.renderItem.bind(this)} 
 		       		inverted
 		      	/>
 			    <View style={styles.footer}>
