@@ -30,7 +30,7 @@ const RouterComponent = () => {
 						key="experiencesList"
 						component={ExperiencesList}
 						title="Experiences"
-						initial
+						
 					/>
 					<Scene
 						key="usersList"
@@ -46,6 +46,7 @@ const RouterComponent = () => {
 						key="interactiveChatRoom"
 						component={ChatRoom}
 						title="Chat"
+						initial
 					/>
 					<Scene 
 						key="employeeList" 

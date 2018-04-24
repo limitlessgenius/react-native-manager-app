@@ -71,29 +71,6 @@ const styles = {
 export default UserCard
 
 
-/*
-<Image
-	style={{width: 100, height: 100}}
-    source={{uri: 'https://randomuser.me/api/portraits/women/93.jpg'}}
-/>
-*/
-
-/*
-<Card
-		        key={name}
-		        title={name}
-		        image={{ uri: "https://randomuser.me/api/portraits/women/93.jpg" }}
-		      >
-		        <Text style={{marginBottom: 10}}>
-		          USER NAME
-		        </Text>
-		        <Button
-		          backgroundColor="#03A9F4"
-		          title="GO"
-		        >
-		        </Button>
-		    </Card>
-*/
 
 
 
