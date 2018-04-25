@@ -28,20 +28,18 @@ class UsersList extends Component {
 		// console.log('FILTERED LIST', this.renderFilteredUsers())
 		//Why undefined ???
 		return (
-			<ImageBackground style={{ flex: 1 }} source={require('../img/ibiza_sunset.jpg')}>
-				<View style={{ flex: 1 }}>
-					<FlatList 
-						data={this.renderFilteredUsers()}
-						renderItem={({item}) => {
-							return (
-								<UserRow 
-									user={item}
-								/>
-							)
-						}}
-					/>
-				</View>
-			</ImageBackground>
+			<View style={{ flex: 1 }}>
+				<FlatList 
+					data={this.renderFilteredUsers()}
+					renderItem={({item}) => {
+						return (
+							<UserRow 
+								user={item}
+							/>
+						)
+					}}
+				/>
+			</View>
 		)
 	}
 }

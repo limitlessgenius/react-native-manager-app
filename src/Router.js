@@ -18,19 +18,19 @@ const RouterComponent = () => {
 	return (
 
 		<Router>
-			<Scene key="root" hideNavBar >
+			<Scene key="root" hideNavBar>
 
-				<Scene key="auth">
+				<Scene key="auth" initial>
 					<Scene key="login" component={LoginForm} title="Login" />
 				</Scene>
 
-				<Scene key="main" initial>
+				<Scene key="main">
 
 					<Scene
 						key="experiencesList"
 						component={ExperiencesList}
 						title="Experiences"
-						initial
+						initialS
 						
 					/>
 					<Scene
