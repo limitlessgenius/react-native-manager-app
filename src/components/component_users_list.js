@@ -30,6 +30,7 @@ class UsersList extends Component {
 		return (
 			<View style={{ flex: 1 }}>
 				<FlatList 
+					style={{ backgroundColor: 'white'}}
 					data={this.renderFilteredUsers()}
 					renderItem={({item}) => {
 						return (

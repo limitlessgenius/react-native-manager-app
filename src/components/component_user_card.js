@@ -22,24 +22,25 @@ class UserCard extends Component {
 		const strImage = image.split('med/').join('')
 		
 		return(
-			
-			<CardSection style={
-				{flexDirection: 'column', 
-				justifyContent: 'center', 
-				alignItems: 'center'}}>
-				<Image
-					style={{width: 300, height: 300}}
-				    source={{ uri: strImage }}
-				/>
-				<CardSection>
-					<Button
-						buttonStyle={{ width: 300 }}
-						backgroundColor="#03A9F4"
-					    title="Chat Now"
-					    onPress={this.onCardPress.bind(this)}
+			<View>
+				<CardSection style={
+					{flexDirection: 'column', 
+					justifyContent: 'center', 
+					alignItems: 'center'}}>
+					<Image
+						style={{width: 300, height: 300}}
+					    source={{ uri: strImage }}
 					/>
+					<CardSection>
+						<Button
+							buttonStyle={{ width: 300 }}
+							backgroundColor="#03A9F4"
+						    title="Chat Now"
+						    onPress={this.onCardPress.bind(this)}
+						/>
+					</CardSection>
 				</CardSection>
-			</CardSection>
+			</View>
 			
 		)
 	}

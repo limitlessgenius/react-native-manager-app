@@ -18,7 +18,11 @@ class UserRow extends Component {
 
 	onButtonPress(user) {
 
-		Actions.userCardDetail({ user })
+		setTimeout(() => {
+			Actions.userCardDetail({ user })
+		}, 1500)
+
+		
 	}
 
 	render() {
@@ -26,7 +30,8 @@ class UserRow extends Component {
 
 		return (
 			<Ripple
-				rippleDuration={600}
+				rippleDuration={1000}
+				rippleColor={"#ee0979"}
 				onPress={this.onButtonPress.bind(this, this.props.user)}
 			>
 			<ImageBackground style={{ flex: 1 }} source={require('../img/ibiza_sunset.jpg')}>
