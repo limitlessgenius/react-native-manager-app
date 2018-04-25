@@ -10,6 +10,8 @@ import * as Animatable from 'react-native-animatable';
 
 import LinearGradient from 'react-native-linear-gradient'
 
+console.log('GRADIENT', LinearGradient)
+
 
 console.log('GRADIENT', LinearGradient)
 
@@ -40,14 +42,16 @@ class ExperiencesList extends Component {
 
 	render() {
 		return(
-			<View style={styles.pannelStyle}>
-				<FlatList
-					centerContent={true}
-					numColumns={3}
-					data={this.props.experiences}
-					renderItem={this.renderExperience.bind(this)}
-				/>
-			</View>
+			<LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']}>
+				<View style={styles.pannelStyle}>
+					<FlatList
+						centerContent={true}
+						numColumns={3}
+						data={this.props.experiences}
+						renderItem={this.renderExperience.bind(this)}
+					/>
+				</View>
+			</LinearGradient>
 
 		)
 	}

@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'njoi' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for njoi
+
+  target 'njoiTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'njoiUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  pod 'React', :path => '../node_modules/react-native'
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
+end
