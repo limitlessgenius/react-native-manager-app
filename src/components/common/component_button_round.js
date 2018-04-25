@@ -23,7 +23,8 @@ const styles = {
 		width: 75,
 	    height: 75,
 	    borderRadius: 75/2,
-	    backgroundColor: 'blue'
+	    backgroundColor: 'white', 
+	    // boxShadow: '0 0 8px 3px rgba(10, 10, 10, 0.2)'
 	}
 	// buttonStyle: {
 	// 	flex:1, 

@@ -1,19 +1,12 @@
 
 import React, { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, ImageBackground } from 'react-native'
 import { connect } from 'react-redux'
 import { fetchExperiences } from '../actions'
 import { Button, CardSection, Spinner, RoundButton, Card } from './common' 
 import { Actions } from 'react-native-router-flux'
 
 import * as Animatable from 'react-native-animatable';
-
-import LinearGradient from 'react-native-linear-gradient'
-
-console.log('GRADIENT', LinearGradient)
-
-
-console.log('GRADIENT', LinearGradient)
 
 class ExperiencesList extends Component {
 
@@ -35,14 +28,14 @@ class ExperiencesList extends Component {
 					customStyle={styles.roundButtonCustomStyle}
 					onPress={this.onButtonPress.bind(this, item.name)}
 				/>
-				<Text style={{alignSelf: 'center', paddingRight: 17}}>{item.name}</Text>
+				<Text style={{alignSelf: 'center', paddingRight: 17, color: 'white'}}>{item.name}</Text>
 			</Animatable.View>
 		)	
 	}
 
 	render() {
 		return(
-			<LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']}>
+			<ImageBackground style={{ flex: 1 }} source={require('../img/ibiza_sunset.jpg')}>
 				<View style={styles.pannelStyle}>
 					<FlatList
 						centerContent={true}
@@ -50,8 +43,8 @@ class ExperiencesList extends Component {
 						data={this.props.experiences}
 						renderItem={this.renderExperience.bind(this)}
 					/>
-				</View>
-			</LinearGradient>
+				</View>	
+			</ImageBackground>
 
 		)
 	}
@@ -66,7 +59,6 @@ const styles = {
 	},
 
 	pannelStyle: {
-		backgroundColor: 'white', 
 		alignItems: 'center', 
 		justifyContent: 'center', 
 		flex: 1, 

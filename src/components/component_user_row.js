@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { View, Text, TouchableHighlight } from 'react-native'
+import { View, Text, TouchableHighlight, ImageBackground } from 'react-native'
 import { Card, Button } from 'react-native-elements'
 import { CardSection } from './common'
 
@@ -29,7 +29,9 @@ class UserRow extends Component {
 				rippleDuration={600}
 				onPress={this.onButtonPress.bind(this, this.props.user)}
 			>
+			<ImageBackground style={{ flex: 1 }} source={require('../img/ibiza_sunset.jpg')}>
 				<CardSection>
+				
 					<Avatar 
 						large
 						source={{uri: image}}
@@ -38,7 +40,9 @@ class UserRow extends Component {
 						xlarge
 					/>
 					<Text>{name}</Text>
+				
 				</CardSection>
+			</ImageBackground>
 			</Ripple>
 		)
 	}

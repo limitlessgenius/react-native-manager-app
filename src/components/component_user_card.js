@@ -2,7 +2,7 @@
 
 
 import React, { Component } from 'react'
-import { View, Text, TouchableWithoutFeedback, Image } from 'react-native'
+import { View, Text, TouchableWithoutFeedback, Image, ImageBackground } from 'react-native'
 
 import { Actions } from 'react-native-router-flux'
 
@@ -22,6 +22,7 @@ class UserCard extends Component {
 		const strImage = image.split('med/').join('')
 		
 		return(
+			
 			<CardSection style={
 				{flexDirection: 'column', 
 				justifyContent: 'center', 
@@ -39,6 +40,7 @@ class UserCard extends Component {
 					/>
 				</CardSection>
 			</CardSection>
+			
 		)
 	}
 	   
@@ -64,7 +66,6 @@ class UserCard extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
 };
 

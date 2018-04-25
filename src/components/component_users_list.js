@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, ImageBackground } from 'react-native'
 import { connect } from 'react-redux'
 import { fetchUsers, fetchExperiences } from '../actions'
 import { CardSection } from './common'
@@ -28,19 +28,20 @@ class UsersList extends Component {
 		// console.log('FILTERED LIST', this.renderFilteredUsers())
 		//Why undefined ???
 		return (
-			<View style={{ flex: 1, backgroundColor: 'white' }}>
-				<FlatList 
-					style={{ backgroundColor: 'white' }}
-					data={this.renderFilteredUsers()}
-					renderItem={({item}) => {
-						return (
-							<UserRow 
-								user={item}
-							/>
-						)
-					}}
-				/>
-			</View>
+			<ImageBackground style={{ flex: 1 }} source={require('../img/ibiza_sunset.jpg')}>
+				<View style={{ flex: 1 }}>
+					<FlatList 
+						data={this.renderFilteredUsers()}
+						renderItem={({item}) => {
+							return (
+								<UserRow 
+									user={item}
+								/>
+							)
+						}}
+					/>
+				</View>
+			</ImageBackground>
 		)
 	}
 }
